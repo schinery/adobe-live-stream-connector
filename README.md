@@ -4,18 +4,6 @@ A NodeJS wrapper for connecting to the [Adobe Live Stream](https://marketing.ado
 
 Based on the code example [Adobe LiveStream NodeJS Starter](https://github.com/sandersonb/firehose-nodejs-starter) by Brian Sanderson.
 
-<!-- MarkdownTOC -->
-
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Tests](#tests)
-- [Release History](#release-history)
-- [License](#license)
-- [Contributing](#contributing)
-
-<!-- /MarkdownTOC -->
-
 ## Prerequisites
 
 You will need to have the an Adobe ID and have it [linked to your Analytics account](https://marketing.adobe.com/developer/documentation/authentication-1/auth-link-account-1). You'll also have needed to have [created an application](https://marketing.adobe.com/developer/documentation/authentication-1/auth-register-app-1) to use the Live Stream.
@@ -48,7 +36,7 @@ var config = {
   streamUrl: '', // The URL to your Live Stream data
   tokenApiHost: 'api.omniture.com', // The Adobe Authentication URL
   tokenCacheFile: 'adobeAuth.token', // The name of the file to store the access token in
-  trustAllSSLCerts: true
+  trustAllSSLCerts: true // Specify whether to trust
 }
 ```
 
