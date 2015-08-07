@@ -1,6 +1,6 @@
 {
   "name": "adobe-live-stream-connector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A NodeJS wrapper for connecting to Adobe's Live Stream API.",
   "main": "./lib/index.js",
   "dependencies": {
