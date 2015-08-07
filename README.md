@@ -58,12 +58,6 @@ function callback(error, response) {
 
 Currently there are no tests! This needs to rectified.
 
-## Release History
-
-1.0.0
-
-Initial launch version.
-
 ## License
 
 [MIT](http://opensource.org/licenses/MIT) license
