@@ -1,0 +1,6 @@
+-r should
+-R spec
+-u bdd
+-t 15000
+-c
+--recursive

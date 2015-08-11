@@ -29,12 +29,13 @@ The `config` param is an Object of configration options:
 
 ```js
 var config = {
+  authHostname: 'api.omniture.com', // The Adobe Authentication URL
+  authPath: '/token', // The Adobe Authentication path to get the OAuth token
   clientId: '', // Your Adobe client ID
   clientSecret: '', // Your Adobe client secret
   loopInterval: 1000, // The number of milliseconds to check connection is still alive
   maxConnections: 1, // The maximum connections you want to make to the Live Stream API
   streamUrl: '', // The URL to your Live Stream data
-  tokenApiHost: 'api.omniture.com', // The Adobe Authentication URL
   tokenCacheFile: 'adobeAuth.token', // The name of the file to store the access token in
   trustAllSSLCerts: true // Specify whether to trust
 }
@@ -56,7 +57,29 @@ function callback(error, response) {
 
 ## Tests
 
-Currently there are no tests! This needs to rectified.
+Currently there are hardly any tests! This needs to rectified.
+
+To run tests use:
+
+```sh
+npm test
+```
+
+### Code coverage
+
+To run [Istanbul](https://github.com/gotwarlost/istanbul) to determine the test coverage use:
+
+```sh
+npm run coverage
+```
+
+Note: There is a `.istanbul.yml` file in the root of this module which is used to configure Istanbul.
+
+## Release History
+
+1.0.0
+
+Initial launch version.
 
 ## License
 

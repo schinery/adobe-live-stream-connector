@@ -1,20 +1,22 @@
 {
   "name": "adobe-live-stream-connector",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A NodeJS wrapper for connecting to Adobe's Live Stream API.",
-  "main": "./lib/index.js",
+  "main": "./lib/adobeLiveStreamConnector.js",
   "dependencies": {
     "event-stream": "^3.3.1"
   },
   "devDependencies": {
-    "expect.js": "^0.3.1",
     "istanbul": "^0.3.17",
     "mocha": "^2.2.5",
-    "superagent": "^1.2.0",
-    "supertest": "^1.0.1"
+    "mocha-jshint": "^2.2.3",
+    "proxyquire": "^1.6.0",
+    "should": "^7.0.2",
+    "sinon": "^1.15.4"
   },
   "scripts": {
-    "test": "mocha --reporter dot --slow 200ms --bail"
+    "coverage": "istanbul cover node_modules/.bin/_mocha && open coverage/lcov-report/index.html",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
