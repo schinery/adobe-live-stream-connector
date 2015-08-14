@@ -55,6 +55,21 @@ function callback(error, response) {
 }
 ```
 
+### Example
+
+There is a basic app in the `example` folder. To get it running first copy the `config.js.example` file into place.
+
+
+```sh
+cp example/config.js.example example/config.js
+```
+
+Add your Adobe Live Stream details to `config.js` then run:
+
+```sh
+node example/app.js
+```
+
 ## Tests
 
 Currently there are hardly any tests! This needs to rectified.
