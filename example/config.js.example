@@ -1,0 +1,15 @@
+'use strict';
+
+var config = {
+  authHostname: 'api.omniture.com',
+  authPath: '/token',
+  clientId: '',
+  clientSecret: '',
+  loopInterval: 1000,
+  maxConnections: 1,
+  streamUrl: '',
+  tokenApiHost: 'api.omniture.com',
+  tokenCacheFile: 'adobeAuth.token'
+};
+
+module.exports = config
