@@ -21,7 +21,7 @@ describe('LiveStream', function() {
     });
 
     it('should have an adobeAuth associated', function() {
-      liveStream.adobeAuth.should.eql(adobeAuth);
+      liveStream.auth.should.eql(adobeAuth);
     });
 
     it('should have a config associated', function() {
