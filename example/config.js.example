@@ -8,8 +8,7 @@ var config = {
   loopInterval: 1000,
   maxConnections: 1,
   streamUrl: '',
-  tokenApiHost: 'api.omniture.com',
-  tokenCacheFile: 'adobeAuth.token'
+  trustAllSSLCerts: true
 };
 
 module.exports = config
