@@ -6,8 +6,11 @@ var fs = proxyquire('fs', {});
 var Token = require('../../lib/token');
 var sinon = require('sinon');
 
+var cacheFile = 'adobe.token';
 var fsMock = null;
+var newTokenValue = null;
 var token = null;
+var tokenValue = null;
 
 describe('Token', function() {
   describe('initalising', function() {
@@ -22,12 +25,7 @@ describe('Token', function() {
 
   describe('methods', function() {
     describe('get', function() {
-      var cacheFile = null;
-      var tokenValue = null;
-
       beforeEach(function() {
-        cacheFile = 'adobe.token';
-
         fsMock = sinon.mock(fs);
       });
 
@@ -125,12 +123,7 @@ describe('Token', function() {
     });
 
     describe('set', function() {
-      var cacheFile = null;
-      var newTokenValue = null;
-      var tokenValue = null;
-
       beforeEach(function() {
-        cacheFile = 'adobe.token';
         tokenValue = 'bar';
 
         fsMock = sinon.mock(fs);
