@@ -103,11 +103,8 @@ describe('Authentication', function() {
     });
 
     describe('invalidateToken', function() {
-      var tokenSpy;
-
       beforeEach(function() {
-        tokenStub = sinon.stub(token, 'set');
-        tokenSpy = sinon.spy(tokenStub);
+        tokenStub = sinon.stub(token, 'clean');
 
         auth = new Authentication(token, config);
         auth.invalidateToken();
@@ -117,9 +114,8 @@ describe('Authentication', function() {
         tokenStub.restore();
       });
 
-      it('should call the token set method with null', function() {
+      it('should call the token clear method with null', function() {
         tokenStub.calledOnce.should.eql(true);
-        tokenStub.calledWith(null).should.eql(true);
       });
     });
   });

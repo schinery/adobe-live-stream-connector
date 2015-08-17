@@ -23,6 +23,51 @@ describe('Cache', function() {
   });
 
   describe('methods', function() {
+    describe('clear', function() {
+      beforeEach(function() {
+        fsMock = sinon.mock(fs);
+      });
+
+      afterEach(function() {
+        fsMock.restore();
+      });
+
+      describe('when the clean is successful', function() {
+        beforeEach(function() {
+          fsMock.expects('unlinkSync').
+            withArgs(cacheFile).
+            once();
+
+          cache = new Cache();
+          cache.clean();
+        });
+
+        afterEach(function() {
+          fsMock.restore();
+        });
+
+        it('should attempt to delete the cache file', function() {
+          fsMock.verify();
+        });
+      });
+
+      describe('when there are unlink errors', function() {
+        beforeEach(function() {
+          fsMock.expects('unlinkSync').
+            withArgs(cacheFile).
+            once().
+            throws();
+
+          cache = new Cache();
+          cache.clean();
+        });
+
+        it('should attempt to delete the file', function() {
+          fsMock.verify();
+        });
+      });
+    });
+
     describe('read', function() {
       beforeEach(function() {
         fsMock = sinon.mock(fs);
@@ -32,26 +77,7 @@ describe('Cache', function() {
         fsMock.restore();
       });
 
-      describe('when no value is returned from the cache', function() {
-        beforeEach(function() {
-          fsMock.expects('readFileSync').
-            withArgs(cacheFile).
-            once().
-            returns(null);
-
-          tokenValue = cache.read();
-        });
-
-        it('should return a null value', function() {
-          (tokenValue === null).should.eql(true);
-        });
-
-        it('should attempt to read a file', function() {
-          fsMock.verify();
-        });
-      });
-
-      describe('when a value is returned from the cache', function() {
+      describe('when the read is successful', function() {
         beforeEach(function() {
           fsMock.expects('readFileSync').
             withArgs(cacheFile).
