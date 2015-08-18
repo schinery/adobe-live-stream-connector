@@ -8,6 +8,7 @@ var Token = require('../../lib/token');
 var sinon = require('sinon');
 
 var auth = null;
+var callbackSpy = null;
 var config = null;
 var token = null;
 var tokenStub = null;
@@ -16,16 +17,6 @@ describe('Authentication', function() {
   beforeEach(function() {
     config = {};
     token = new Token(config);
-  });
-
-  describe('initalising', function() {
-    beforeEach(function() {
-      auth = new Authentication(token, config);
-    });
-
-    it('should have a token attached', function() {
-      auth.token.should.eql(token);
-    });
   });
 
   describe('methods', function() {
@@ -64,8 +55,6 @@ describe('Authentication', function() {
     // });
 
     describe('getToken', function() {
-      var callbackSpy;
-
       describe('when the Token object returns a value', function() {
         beforeEach(function() {
           callbackSpy = sinon.spy();
@@ -85,19 +74,22 @@ describe('Authentication', function() {
         });
       });
 
-      describe('when the Token object returns a blank or null value', function() {
+      describe('when the Token object returns a null value', function() {
         beforeEach(function() {
+          callbackSpy = sinon.spy();
+          tokenStub = sinon.stub(token, 'get').returns(null);
 
+          auth = new Authentication(token, config);
+          auth.getToken(callbackSpy);
         });
 
-        describe('when blank', function() {
-          it.skip('should do something', function() {
-          });
+        afterEach(function() {
+          tokenStub.restore();
         });
 
-        describe('when null', function() {
-          it.skip('should do something', function() {
-          });
+        it.skip('should call the callback with the token', function() {
+          callbackSpy.calledOnce.should.eql(true);
+          callbackSpy.calledWith(null, 'foobar').should.eql(true);
         });
       });
     });

@@ -15,16 +15,6 @@ var token = null;
 var tokenValue = null;
 
 describe('Token', function() {
-  describe('initalising', function() {
-    beforeEach(function(){
-      token = new Token();
-    });
-
-    it('should not have direct access to the value property', function() {
-      (token.value === undefined).should.eql(true);
-    });
-  });
-
   describe('methods', function() {
     beforeEach(function() {
       cache = new Cache();

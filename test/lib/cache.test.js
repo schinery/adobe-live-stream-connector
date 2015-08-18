@@ -12,26 +12,16 @@ var fsMock = null;
 var tokenValue = null;
 
 describe('Cache', function() {
-  describe('initalising', function() {
-    beforeEach(function(){
-      cache = new Cache();
-    });
-
-    it('should not have direct access to the cacheFile property', function() {
-      (cacheFile.value === undefined).should.eql(true);
-    });
-  });
-
   describe('methods', function() {
+    beforeEach(function() {
+      fsMock = sinon.mock(fs);
+    });
+
+    afterEach(function() {
+      fsMock.restore();
+    });
+
     describe('clear', function() {
-      beforeEach(function() {
-        fsMock = sinon.mock(fs);
-      });
-
-      afterEach(function() {
-        fsMock.restore();
-      });
-
       describe('when the clean is successful', function() {
         beforeEach(function() {
           fsMock.expects('unlinkSync').
@@ -40,10 +30,6 @@ describe('Cache', function() {
 
           cache = new Cache();
           cache.clean();
-        });
-
-        afterEach(function() {
-          fsMock.restore();
         });
 
         it('should attempt to delete the cache file', function() {
@@ -69,14 +55,6 @@ describe('Cache', function() {
     });
 
     describe('read', function() {
-      beforeEach(function() {
-        fsMock = sinon.mock(fs);
-      });
-
-      afterEach(function() {
-        fsMock.restore();
-      });
-
       describe('when the read is successful', function() {
         beforeEach(function() {
           fsMock.expects('readFileSync').
@@ -125,12 +103,6 @@ describe('Cache', function() {
     describe('save', function() {
       beforeEach(function() {
         tokenValue = 'bar';
-
-        fsMock = sinon.mock(fs);
-      });
-
-      afterEach(function() {
-        fsMock.restore();
       });
 
       describe('when the write to file is successful', function() {
@@ -153,7 +125,7 @@ describe('Cache', function() {
           fsMock.expects('writeFileSync').
             withArgs(cacheFile, tokenValue).
             once().
-            throws;
+            throws();
 
           cache = new Cache();
           cache.save(tokenValue);
