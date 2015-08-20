@@ -1,10 +1,9 @@
 'use strict';
 
-var proxyquire =  require('proxyquire').noCallThru();
-var fs = proxyquire('fs', {});
+var fs = require('fs');
+var sinon = require('sinon');
 
 var Cache = require('../../lib/cache');
-var sinon = require('sinon');
 
 var cache = null;
 var cacheFile = 'adobe.token';

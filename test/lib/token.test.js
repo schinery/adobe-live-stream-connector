@@ -1,14 +1,9 @@
 'use strict';
 
-// var proxyquire =  require('proxyquire').noCallThru();
-// var fs = proxyquire('fs', {});
-
 var Cache = require('../../lib/cache');
 var Token = require('../../lib/token');
 var sinon = require('sinon');
 
-// var fsMock = null;
-// var newTokenValue = null;
 var cache = null;
 var cacheMock = null;
 var token = null;

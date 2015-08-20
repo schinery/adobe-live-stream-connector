@@ -94,12 +94,12 @@ describe('Authentication', function() {
       });
     });
 
-    describe('invalidateToken', function() {
+    describe('removeToken', function() {
       beforeEach(function() {
         tokenStub = sinon.stub(token, 'clean');
 
         auth = new Authentication(token, config);
-        auth.invalidateToken();
+        auth.removeToken();
       });
 
       afterEach(function() {
