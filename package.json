@@ -8,10 +8,10 @@
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "istanbul": "^0.3.17",
-    "mocha": "^2.2.5",
-    "superagent": "^1.2.0",
-    "supertest": "^1.0.1"
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "superagent": "^3.8.3",
+    "supertest": "^3.1.0"
   },
   "scripts": {
     "test": "mocha --reporter dot --slow 200ms --bail"
