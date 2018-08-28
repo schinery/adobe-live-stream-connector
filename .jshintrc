@@ -6,7 +6,6 @@
   "expr": true,
   "freeze": true,
   "globals": {
-    /* MOCHA */
     "describe": false,
     "it": false,
     "before": false,

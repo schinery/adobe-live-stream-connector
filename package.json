@@ -1,6 +1,6 @@
 {
   "name": "adobe-live-stream-connector",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A NodeJS wrapper for connecting to Adobe's Live Stream API.",
   "main": "./lib/adobeLiveStreamConnector.js",
   "dependencies": {
@@ -29,7 +29,7 @@
     "Omniture",
     "API"
   ],
-  "author": "Stuart Chinery <stuart.chinery@headlondon.com>",
+  "author": "Stuart Chinery <stuart.chinery@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sleepingstu/adobe-live-stream-connector/issues"
